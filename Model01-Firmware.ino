@@ -16,6 +16,9 @@
 // The Kaleidoscope core
 #include "Kaleidoscope.h"
 
+// Support for stenotype GeminiPR
+#include <Kaleidoscope-Steno.h>
+
 // Support for macros
 #include "Kaleidoscope-Macros.h"
 
@@ -118,7 +121,7 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum { QWERTY, NUMPAD, FUNCTION }; // layers
+enum { QWERTY, NUMPAD, STENO, FUNCTION }; // layers
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
@@ -158,8 +161,25 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ___, ___, ___, ___,
    ___),
 
+  [STENO] = KEYMAP_STACKED
+  (XXX,    XXX,   XXX,   XXX,   XXX,   XXX,   S(N6),
+   XXX,    S(N1), S(N2), S(N3), S(N4), S(N5), S(ST1),
+   S(FN),  S(S1), S(TL), S(PL), S(HL), S(ST1),
+   S(PWR), S(S2), S(KL), S(WL), S(RL), S(ST2), S(ST2),
+
+   S(RE1), S(A), S(O), XXX,
+   ___,
+
+   S(N7),  XXX,    XXX,   XXX,   XXX,   XXX,   XXX,
+   S(ST3), S(N8),  S(N9), S(NA), S(NB), S(NC), XXX,
+   S(ST3), S(FR),  S(PR), S(LR), S(TR), S(DR),
+   S(ST4), S(ST4), S(RR), S(BR), S(GR), S(SR), S(ZR),
+
+   XXX, S(E), S(U), S(RE2),
+   ___),
+
   [FUNCTION] =  KEYMAP_STACKED
-  (___,      Key_F1,          Key_F2,     Key_F3,  Key_F4,  Key_F5,  XXX,
+  (___,      Key_F1,          Key_F2,     Key_F3,  Key_F4,  Key_F5,  LockLayer(STENO),
    Key_Tab,  Key_F13,         Key_F14,    Key_F15, Key_F16, Key_F17, ___,
    Key_Home, Key_F18,         Key_F19,    Key_F20, Key_F21, Key_F22,
    Key_End,  Key_PrintScreen, Key_Insert, ___,     Key_F23, Key_F24,     ___,
@@ -280,6 +300,10 @@ void hostPowerManagementEventHandler(kaleidoscope::HostPowerManagement::Event ev
   */
 
 void setup() {
+
+  //GeminiPR runs at 9600 baud
+  Serial.begin(9600);
+
   // First, call Kaleidoscope's internal setup function
   Kaleidoscope.setup();
 
@@ -327,6 +351,9 @@ void setup() {
     // The numpad plugin is responsible for lighting up the 'numpad' mode
     // with a custom LED effect
     &NumPad,
+
+    // The GeminiPR Stenotype machine.
+    &GeminiPR,
 
     // The macros plugin adds support for macros
     &Macros,
