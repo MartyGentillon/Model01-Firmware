@@ -132,7 +132,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
    Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftControl, Key_Spacebar, Key_LeftShift, Key_LeftGui,
+   Key_CapsLock, Key_Spacebar, Key_LeftShift, Key_LeftGui,
    ShiftToLayer(FUNCTION),
 
    Key_Pause,  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
@@ -163,7 +163,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_Tab,  Key_F13,         Key_F14,    Key_F15, Key_F16, Key_F17, ___,
    Key_Home, Key_F18,         Key_F19,    Key_F20, Key_F21, Key_F22,
    Key_End,  Key_PrintScreen, Key_Insert, ___,     Key_F23, Key_F24,     ___,
-   ___, Key_Backspace, ___, ___,
+   Key_LeftControl, Key_Backspace, ___, ___,
    ___,
 
    Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
