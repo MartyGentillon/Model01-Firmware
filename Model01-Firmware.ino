@@ -38,9 +38,6 @@
 // Support for LED modes that set all LEDs to a single color
 #include "Kaleidoscope-LEDEffect-SolidColor.h"
 
-// Support for an LED mode that makes all the LEDs 'breathe'
-#include "Kaleidoscope-LEDEffect-Breathe.h"
-
 // Support for an LED mode that makes a red pixel chase a blue pixel across the keyboard
 #include "Kaleidoscope-LEDEffect-Chase.h"
 
@@ -328,9 +325,6 @@ void setup() {
 
     // These static effects turn your keyboard's LEDs a variety of colors
     &solidRed, &solidYellow, &solidGreen, &solidIndigo, &solidViolet,
-
-    // The breathe effect slowly pulses all of the LEDs on your keyboard
-    &LEDBreatheEffect,
 
     // The stalker effect lights up the keys you've pressed recently
     &StalkerEffect,
