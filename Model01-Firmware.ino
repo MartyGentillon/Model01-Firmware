@@ -333,11 +333,11 @@ void setup() {
     // keeps and displays a heatmap as a led effect.
     &HeatmapEffect,
 
-    // These static effects turn your keyboard's LEDs a variety of colors
-    &solidRed, &solidYellow, &solidGreen, &solidIndigo, &solidViolet,
-
     // The stalker effect lights up the keys you've pressed recently
     &StalkerEffect,
+
+    // These static effects turn your keyboard's LEDs a variety of colors
+    &solidRed, &solidYellow, &solidGreen, &solidIndigo, &solidViolet,
 
     // The numpad plugin is responsible for lighting up the 'numpad' mode
     // with a custom LED effect
