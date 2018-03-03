@@ -47,6 +47,9 @@
 // Support for an LED mode that lights up the keys as you press them
 #include "Kaleidoscope-LED-Stalker.h"
 
+// Adds a matrix like led mode.
+#include "Kaleidoscope-LEDEffect-DigitalRain.h"
+
 // Support for host power management (suspend & wakeup)
 #include "Kaleidoscope-HostPowerManagement.h"
 
@@ -311,6 +314,8 @@ void setup() {
     // We start with the LED effect that turns off all the LEDs.
     &LEDOff,
 
+    &LEDDigitalRainEffect,
+
     // The rainbow effect changes the color of all of the keyboard's keys at the same time
     // running through all the colors of the rainbow.
     &LEDRainbowEffect,
@@ -357,6 +362,8 @@ void setup() {
   // called 'BlazingTrail'. For details on other options,
   // see https://github.com/keyboardio/Kaleidoscope-LED-Stalker
   StalkerEffect.variant = STALKER(BlazingTrail);
+
+  LEDDigitalRainEffect.DROP_TICKS = 32; // Make the rain fall slower
 
   // We want the keyboard to be able to wake the host up from suspend.
   HostPowerManagement.enableWakeup();
