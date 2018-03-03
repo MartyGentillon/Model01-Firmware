@@ -368,10 +368,8 @@ void setup() {
   // We want the keyboard to be able to wake the host up from suspend.
   HostPowerManagement.enableWakeup();
 
-  // We want to make sure that the firmware starts with LED effects off
-  // This avoids over-taxing devices that don't have a lot of power to share
-  // with USB devices
-  LEDOff.activate();
+  // screw it, turn on the pretty leds.  But, this isn't great for batteries.
+  LEDDigitalRainEffect.activate();
 }
 
 /** loop is the second of the standard Arduino sketch functions.
