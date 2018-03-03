@@ -50,6 +50,8 @@
 // Adds a matrix like led mode.
 #include "Kaleidoscope-LEDEffect-DigitalRain.h"
 
+#include "Kaleidoscope-Heatmap.h"
+
 // Support for host power management (suspend & wakeup)
 #include "Kaleidoscope-HostPowerManagement.h"
 
@@ -327,6 +329,9 @@ void setup() {
     // The chase effect follows the adventure of a blue pixel which chases a red pixel across
     // your keyboard. Spoiler: the blue pixel never catches the red pixel
     &LEDChaseEffect,
+
+    // keeps and displays a heatmap as a led effect.
+    &HeatmapEffect,
 
     // These static effects turn your keyboard's LEDs a variety of colors
     &solidRed, &solidYellow, &solidGreen, &solidIndigo, &solidViolet,
